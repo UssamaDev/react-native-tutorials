@@ -10,7 +10,7 @@ import {
 } from '@react-native-google-signin/google-signin';
 
 GoogleSignin.configure({
-  webClientId: '230118982102-om8l0ftqkuhbpi2731iflee5266hoaq4.apps.googleusercontent.com',
+  webClientId: 'YOUR CLIENT ID',
 });
 
 async function onGoogleButtonPress() {
