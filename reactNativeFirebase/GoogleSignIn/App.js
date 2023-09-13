@@ -1,4 +1,4 @@
-import React, { useState, useEffect, setState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -42,24 +42,15 @@ async function onGoogleButtonPress() {
   }
 };
 
-async function googleSignOut()  {
-  try {
-    await GoogleSignin.signOut();
-    setState({ user: null }); // Remember to remove the user from your app's state as well
-  } catch (error) {
-    console.error(error);
-  }
-};
-
 function HomeScreen({ navigation }) {
   const [email, setEmail] = useState();
-  const [user, setuser] = useState();
+  const [user, setUser] = useState();
   useEffect(()=>{
     const unsubscribe = auth().onAuthStateChanged(user => {
       if (user) {
         // User is signed in => Get user info and stay on the Home Screen
         setEmail(user.email)
-        setuser(user)
+        setUser(user)
       }
       else {
         // No user is signed in => Navigate to the Authentication Screen
@@ -67,7 +58,16 @@ function HomeScreen({ navigation }) {
         navigation.navigate("Auth")
       }
     })
-  })
+  });
+
+  async function googleSignOut()  {
+  try {
+    await GoogleSignin.signOut();
+    setUser(null); // Remember to remove the user from your app's state as well
+  } catch (error) {
+    console.error(error);
+  }
+};
   
 
   return (
