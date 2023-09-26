@@ -23,7 +23,7 @@ const HomeScreen = ({navigation}) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text style={styles.title}>Home Screen</Text>
-            <Text style={styles.text}>Hi {user?.phoneNumber || "loading"}</Text>
+            <Text style={styles.text}>Hi, your phone number is: {user?.phoneNumber || "loading"}</Text>
             <Pressable
                 style={styles.button}
                 onPress={() => signOut()}>
