@@ -7,6 +7,7 @@ const HomeScreen = ({navigation}) => {
     const [user, setUser] = useState(null)
     const signOut = () => {
         auth().signOut();
+        setUser(null);
     };
     useEffect(() => {
         const subscriber = auth().onAuthStateChanged((user) => {
