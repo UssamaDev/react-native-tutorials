@@ -21,7 +21,7 @@ const MyStack = () => {
   );
 }
 
-const App = ({navigation}) => {
+const App = () => {
 
   return (
     <ConfirmProvider>
